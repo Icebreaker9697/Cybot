@@ -8,10 +8,14 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class RandomMap : MonoBehaviour {
 
     public GameObject star;
+    public GameObject npc;
     private FirstPersonController fpc;
     private TextMeshProUGUI winGameTxt;
     private Button newGame;
     private GameObject g;
+    private bool isGameOver;
+    public AudioClip winSound;
+    public AudioClip loseSound;
 
     private List<GameObject> objects = new List<GameObject>();
 
@@ -28,8 +32,36 @@ public class RandomMap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
+
+    public void LoseGame()
+    {
+        if (!isGameOver)
+        {
+            winGameTxt.enabled = true;
+            winGameTxt.SetText("You lose!");
+            newGame.gameObject.SetActive(true);
+            Cursor.visible = true;
+            Screen.lockCursor = false;
+            isGameOver = true;
+            fpc.GetComponent<AudioSource>().PlayOneShot(loseSound);
+        }
+    }
+
+    public void WinGame()
+    {
+        if (!isGameOver)
+        {
+            winGameTxt.enabled = true;
+            winGameTxt.SetText("You win!");
+            newGame.gameObject.SetActive(true);
+            Cursor.visible = true;
+            Screen.lockCursor = false;
+            isGameOver = true;
+            fpc.GetComponent<AudioSource>().PlayOneShot(winSound);
+        }
+    }
 
     public void NewGame()
     {
@@ -37,6 +69,7 @@ public class RandomMap : MonoBehaviour {
         newGame.gameObject.SetActive(false);
         Cursor.visible = false;
         Screen.lockCursor = true;
+        isGameOver = false;
 
         if (objects.Count > 0)
         {
@@ -47,10 +80,22 @@ public class RandomMap : MonoBehaviour {
             objects = new List<GameObject>();
         }
 
+        fpc.sprintLeft = 0;
+        fpc.canRun = false;
+
         int numStars = (int)Random.Range(12, 30);
         for (int i = 0; i < numStars; i++)
         {
             GameObject go = Instantiate(star);
+            objects.Add(go);
+            go.transform.SetParent(transform);
+            go.transform.position = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
+        }
+
+        int numEnemies = (int)Random.Range(5, 15);
+        for(int i = 0; i < numEnemies; i++)
+        {
+            GameObject go = Instantiate(npc);
             objects.Add(go);
             go.transform.SetParent(transform);
             go.transform.position = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
