@@ -24,7 +24,7 @@ public class NPCScript : MonoBehaviour {
         }
         else
         {
-            SetDestination();
+            //SetDestination();
         }
 
         agent.speed = Random.Range(3.5f, 10);
@@ -33,7 +33,7 @@ public class NPCScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         destination = fpc.transform;
-        SetDestination();
+        //SetDestination();
     }
 
     private void SetDestination()
@@ -45,11 +45,21 @@ public class NPCScript : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
-            GameObject.FindObjectOfType<RandomMap>().LoseGame();
+            Debug.Log("Collided!");
+            GameObject.FindObjectOfType<RandomMap>().Capture();
         }
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
+            Debug.Log("Left collision!");
+            GameObject.FindObjectOfType<RandomMap>().Free();
+        }
+    }*/
 }

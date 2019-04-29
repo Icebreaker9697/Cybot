@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
@@ -16,6 +17,7 @@ public class RandomMap : MonoBehaviour {
     private bool isGameOver;
     public AudioClip winSound;
     public AudioClip loseSound;
+    private int numCaptured;
 
     private List<GameObject> objects = new List<GameObject>();
 
@@ -32,8 +34,26 @@ public class RandomMap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        //Debug.Log("Numcaptured = " + numCaptured);
 	}
+
+    public void Capture()
+    {
+        numCaptured++;
+        if(numCaptured == 2)
+        {
+            LoseGame();
+        }
+    }
+
+    public void Free()
+    {
+        numCaptured--;
+        if(numCaptured < 0)
+        {
+            numCaptured = 0;
+        }
+    }
 
     public void LoseGame()
     {
@@ -70,6 +90,7 @@ public class RandomMap : MonoBehaviour {
         Cursor.visible = false;
         Screen.lockCursor = true;
         isGameOver = false;
+        numCaptured = 0;
 
         if (objects.Count > 0)
         {
@@ -95,10 +116,11 @@ public class RandomMap : MonoBehaviour {
         int numEnemies = (int)Random.Range(5, 15);
         for(int i = 0; i < numEnemies; i++)
         {
-            GameObject go = Instantiate(npc);
+            Vector3 pos = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
+            GameObject go = Instantiate(npc, pos, Quaternion.identity);
             objects.Add(go);
             go.transform.SetParent(transform);
-            go.transform.position = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
+
         }
 
         Vector3 randStart = new Vector3(Random.Range(-57.4f, 57.4f), 2.63f, Random.Range(-57.4f, 57.4f));
@@ -121,5 +143,5 @@ public class RandomMap : MonoBehaviour {
 
         print("Created a new game!");
     }
-    
+
 }

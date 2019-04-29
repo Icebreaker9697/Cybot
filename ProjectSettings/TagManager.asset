@@ -8,6 +8,7 @@ TagManager:
   - BnRestart
   - WinGameText
   - Goal
+  - NPC
   layers:
   - Default
   - TransparentFX
