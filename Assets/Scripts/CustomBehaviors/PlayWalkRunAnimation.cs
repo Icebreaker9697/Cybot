@@ -8,13 +8,11 @@ namespace BBUnity.Actions
     /// <summary>
     /// It is an action to move towards the given goal using a NavMeshAgent.
     /// </summary>
-    [Action("Navigation/CustomPursuePlayerAction")]
-    [Help("Moves the game object towards a given target by using a NavMeshAgent")]
-    public class CustomPursuePlayerAction : GOAction
+    [Action("Animation/PlayWalkRunAnimation")]
+    public class PlayWalkRunAnimation : GOAction
     {
-        private FirstPersonController fpc;
-
         private UnityEngine.AI.NavMeshAgent navAgent;
+        private Animator anim;
 
         private Transform targetTransform;
 
@@ -22,23 +20,21 @@ namespace BBUnity.Actions
         /// <remarks>Check if GameObject object exists and NavMeshAgent, if there is no NavMeshAgent, the default one is added.</remarks>
         public override void OnStart()
         {
-            fpc = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
-
-            targetTransform = fpc.transform;
 
             navAgent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-            if (navAgent == null)
-            {
-                Debug.LogWarning("The " + gameObject.name + " game object does not have a Nav Mesh Agent component to navigate. One with default values has been added", gameObject);
-                navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
-            }
-            navAgent.SetDestination(targetTransform.position);
+            anim = gameObject.GetComponentInChildren<Animator>();
 
-#if UNITY_5_6_OR_NEWER
-            navAgent.isStopped = false;
-#else
-                navAgent.Resume();
-#endif
+            if(navAgent.speed > 0 && navAgent.speed < 8)
+            {
+                anim.SetBool("IsWalking", true);
+            } else if(navAgent.speed >= 8)
+            {
+                anim.SetBool("IsRunning", true);
+            }
+            else
+            {
+                anim.SetBool("IsIdle", true);
+            }
         }
 
         /// <summary>Method of Update of MoveToGameObject.</summary>
@@ -46,11 +42,19 @@ namespace BBUnity.Actions
         /// y, the task is running, if it is still moving to the target.</remarks>
         public override TaskStatus OnUpdate()
         {
-            if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
-                return TaskStatus.COMPLETED;
-            else if (navAgent.destination != targetTransform.position)
-                navAgent.SetDestination(targetTransform.position);
-            return TaskStatus.RUNNING;
+            if (navAgent.speed > 0 && navAgent.speed < 8)
+            {
+                anim.SetBool("IsWalking", true);
+            }
+            else if (navAgent.speed >= 8)
+            {
+                anim.SetBool("IsRunning", true);
+            }
+            else
+            {
+                anim.SetBool("IsIdle", true);
+            }
+            return TaskStatus.COMPLETED;
         }
         /// <summary>Abort method of MoveToGameObject </summary>
         /// <remarks>When the task is aborted, it stops the navAgentMesh.</remarks>

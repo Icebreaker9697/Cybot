@@ -5121,7 +5121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 1721123432875612, guid: c97b221269cba66448e3ac87f3bda67d, type: 2}
-  npc: {fileID: 1776678846366584, guid: 2e566408948b6a847b4c1ff2f59ae047, type: 2}
+  npc: {fileID: 1891745884365938, guid: abe9606d77ad60e449c6d1a5441c3d77, type: 2}
   winSound: {fileID: 8300000, guid: 0520e29d0a06c834e89392b804ed5507, type: 3}
   loseSound: {fileID: 8300000, guid: af27795f4a6f94a4491e43f35667947d, type: 3}
 --- !u!4 &1766184129

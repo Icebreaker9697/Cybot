@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34a7c8ca992f915438a96c2077353778, type: 3}
-  m_Name: EnemyBehavior
+  m_Name: Cybot6
   m_EditorClassIdentifier: 
-  brickName: Assets/Behaviors/EnemyBehavior.asset
+  brickName: Assets/Behaviors/Cybot6.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"5a6e89ba97c5afc4b9e53dcc6c3f1be4\" nextId=\"37\">\r\n      <root>\r\n
+    id=\"0\" guid=\"2d3ee8371895790488f44217a9110348\" nextId=\"37\">\r\n      <root>\r\n
     \       <ParallelNode id=\"15\" />\r\n      </root>\r\n      <inputParams />\r\n
     \     <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <ParallelNode
     id=\"15\" policy=\"AndPolicy\">\r\n      <children>\r\n        <elem>\r\n          <RepeatDecorator
@@ -55,7 +55,7 @@ MonoBehaviour:
     \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n
     \   <ActionNode id=\"35\" action=\"Animation/PlayWalkRunAnimation\">\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n
-    \ </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"EnemyBehavior\"
+    \ </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Cybot6\"
     _description=\"\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n
     \         <PrioritySelectorNode id=\"1\" />\r\n        </elem>\r\n        <elem>\r\n
     \         <SubbehaviorNode id=\"10\" />\r\n        </elem>\r\n        <elem>\r\n
@@ -137,4 +137,4 @@ MonoBehaviour:
   subslist:
   - {fileID: 11400000, guid: 8fa0a8cb460b32340bcb1a10d02c67b8, type: 2}
   - {fileID: 11400000, guid: ff6aab435fee22445b18b453c6e68045, type: 2}
-  _guid: 5a6e89ba97c5afc4b9e53dcc6c3f1be4
+  _guid: 2d3ee8371895790488f44217a9110348

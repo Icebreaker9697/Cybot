@@ -26,8 +26,10 @@ public class NPCScript : MonoBehaviour {
         {
             //SetDestination();
         }
+     
+        agent.speed = Random.Range(0, 7);
+        agent.acceleration = agent.speed * 5;
 
-        agent.speed = Random.Range(3.5f, 10);
 	}
 	
 	// Update is called once per frame
