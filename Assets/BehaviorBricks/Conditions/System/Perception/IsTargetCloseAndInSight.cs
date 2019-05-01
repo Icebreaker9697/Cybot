@@ -17,7 +17,7 @@ namespace BBUnity.Conditions
         ///<value>Input view angle parameter to consider that the target is in sight.value>
         [InParam("angle")]
         [Help("The view angle to consider that the target is in sight")]
-        public float angle;
+        private float angle = 45;
 
         ///<value>Input maximun distance Parameter to consider that the target is close.</value>
         [InParam("closeDistance")]

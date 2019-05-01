@@ -9,6 +9,7 @@ TagManager:
   - WinGameText
   - Goal
   - NPC
+  - NPC7
   layers:
   - Default
   - TransparentFX

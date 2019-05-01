@@ -10,6 +10,8 @@ public class NPCScript : MonoBehaviour {
 
     private Transform destination;
     private FirstPersonController fpc;
+    public GameObject toChase = null;
+    public int numSpawned = 0;
 
     NavMeshAgent agent;
 

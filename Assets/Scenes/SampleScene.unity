@@ -1541,7 +1541,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: efe6fc25350958c479cd9fcde7e565f9, type: 2}
+  - {fileID: 2100000, guid: f95be80cca8cea14bbfa19aa7d6c53d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2975,6 +2975,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_MouseLook.lockCursor
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_RunSpeed
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -5121,9 +5125,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 1721123432875612, guid: c97b221269cba66448e3ac87f3bda67d, type: 2}
-  npc: {fileID: 1891745884365938, guid: abe9606d77ad60e449c6d1a5441c3d77, type: 2}
+  Cybots:
+  - {fileID: 1996320913070696, guid: abe9606d77ad60e449c6d1a5441c3d77, type: 2}
+  - {fileID: 1022368648203128, guid: 42f1ef8dd5aa48448875e51ce836b32c, type: 2}
+  - {fileID: 1456249738073704, guid: 61fe3e4d8636241499090eac944ba990, type: 2}
+  - {fileID: 1710993098949016, guid: b7fbb2e8bbbfc7542927835ff545e9c2, type: 2}
+  - {fileID: 1743746644158156, guid: 6454af343701e3e4ebac5ab2a36f4b00, type: 2}
+  - {fileID: 1530342643908180, guid: 2636ee1b116c9f743aed87aabb6b5d4c, type: 2}
+  - {fileID: 1062733738272910, guid: 41c6a54d18a20564ebd128d70d54dc45, type: 2}
+  - {fileID: 1523503641901662, guid: 7e53081ba8e5741429ac7ec724cfa18c, type: 2}
+  - {fileID: 1725378844656884, guid: 75acef0e4ecd3af44ab7d20fda3a529c, type: 2}
+  - {fileID: 1577811356186740, guid: 946881f62b6eeb3498a8cd85a6f007ee, type: 2}
   winSound: {fileID: 8300000, guid: 0520e29d0a06c834e89392b804ed5507, type: 3}
   loseSound: {fileID: 8300000, guid: af27795f4a6f94a4491e43f35667947d, type: 3}
+  numChasing: 0
+  objects: []
 --- !u!4 &1766184129
 Transform:
   m_ObjectHideFlags: 0

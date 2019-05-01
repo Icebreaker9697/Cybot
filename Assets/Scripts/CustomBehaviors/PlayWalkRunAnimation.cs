@@ -27,13 +27,19 @@ namespace BBUnity.Actions
             if(navAgent.speed > 0 && navAgent.speed < 8)
             {
                 anim.SetBool("IsWalking", true);
+                anim.SetBool("IsRunning", false);
+                anim.SetBool("IsIdle", false);
             } else if(navAgent.speed >= 8)
             {
                 anim.SetBool("IsRunning", true);
+                anim.SetBool("IsIdle", false);
+                anim.SetBool("IsWalking", false);
             }
             else
             {
                 anim.SetBool("IsIdle", true);
+                anim.SetBool("IsWalking", false);
+                anim.SetBool("IsRunning", false);
             }
         }
 

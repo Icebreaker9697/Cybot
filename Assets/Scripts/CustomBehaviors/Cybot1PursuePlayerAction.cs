@@ -24,6 +24,7 @@ namespace BBUnity.Actions
         /// <remarks>Check if GameObject object exists and NavMeshAgent, if there is no NavMeshAgent, the default one is added.</remarks>
         public override void OnStart()
         {
+            //Debug.Log("Will pursue player");
             fpc = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
             anim = gameObject.GetComponentInChildren<Animator>();
 
@@ -49,6 +50,8 @@ namespace BBUnity.Actions
             navAgent.speed = Mathf.Max(navAgent.speed, 7);
 
             navAgent.acceleration = navAgent.speed * 5;
+
+            GameObject.FindObjectOfType<RandomMap>().numChasing++;
         }
 
         /// <summary>Method of Update of MoveToGameObject.</summary>
@@ -57,15 +60,26 @@ namespace BBUnity.Actions
         public override TaskStatus OnUpdate()
         {
             if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
+            {
                 return TaskStatus.COMPLETED;
+            }
             else if (navAgent.destination != targetTransform.position)
+            {
                 navAgent.SetDestination(targetTransform.position);
+            }
             return TaskStatus.RUNNING;
         }
         /// <summary>Abort method of MoveToGameObject </summary>
         /// <remarks>When the task is aborted, it stops the navAgentMesh.</remarks>
         public override void OnAbort()
         {
+            GameObject.FindObjectOfType<RandomMap>().numChasing--;
+            if (GameObject.FindObjectOfType<RandomMap>().numChasing < 0)
+            {
+                GameObject.FindObjectOfType<RandomMap>().numChasing = 0;
+            }
+            navAgent.speed = Random.Range(3, 8);
+
 
 #if UNITY_5_6_OR_NEWER
             if (navAgent != null)

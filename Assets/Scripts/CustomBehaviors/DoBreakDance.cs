@@ -20,11 +20,13 @@ namespace BBUnity.Actions
         private Animator anim;
 
         float timePassed = 0;
+        float originalSpeed;
 
         /// <summary>Initialization Method of MoveToGameObject.</summary>
         /// <remarks>Check if GameObject object exists and NavMeshAgent, if there is no NavMeshAgent, the default one is added.</remarks>
         public override void OnStart()
         {
+            //Debug.Log("Starting Breakdance!");
             fpc = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
             anim = gameObject.GetComponentInChildren<Animator>();
 
@@ -37,11 +39,13 @@ namespace BBUnity.Actions
                 navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
             }
 
+            originalSpeed = navAgent.speed;
             navAgent.speed = 0;
 
             anim.SetBool("IsVictory", true);
             anim.SetBool("IsWalking", false);
             anim.SetBool("IsRunning", false);
+
         }
 
         /// <summary>Method of Update of MoveToGameObject.</summary>
@@ -49,13 +53,6 @@ namespace BBUnity.Actions
         /// y, the task is running, if it is still moving to the target.</remarks>
         public override TaskStatus OnUpdate()
         {
-            
-            if (timePassed < 3)
-            {
-                // Code to go left here
-                timePassed += Time.deltaTime;
-                return TaskStatus.RUNNING;
-            }
             return TaskStatus.COMPLETED;
         }
         /// <summary>Abort method of MoveToGameObject </summary>

@@ -31,7 +31,9 @@ namespace BBCore.Actions
         /// <remarks>Increase the elapsed time and check if you have exceeded the waiting time has ended.</remarks>
         public override TaskStatus OnUpdate()
         {
+            //Debug.Log("Time scale is: " + Time.timeScale);
             elapsedTime += Time.deltaTime;
+            //Debug.Log("elapsedTime: " + elapsedTime);
             if (elapsedTime >= seconds)
                 return TaskStatus.COMPLETED;
             return TaskStatus.RUNNING;

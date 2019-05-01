@@ -30,9 +30,11 @@ namespace BBUnity.Actions
 
         public override TaskStatus OnUpdate()
         {
-            if ((gameObject.transform.position - GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().transform.position).sqrMagnitude > closeDistance * closeDistance)
+            Vector3 curPos = gameObject.transform.position;
+            Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().transform.position;
+            float mag = (curPos - playerPos).sqrMagnitude;
+            if (mag > closeDistance * closeDistance)
             {
-                Debug.Log("Not close to player");
                 GameObject.FindObjectOfType<RandomMap>().Free();
                 return TaskStatus.COMPLETED;
             }

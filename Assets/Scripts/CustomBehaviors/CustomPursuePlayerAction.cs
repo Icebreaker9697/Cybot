@@ -43,6 +43,8 @@ namespace BBUnity.Actions
             navAgent.speed = Mathf.Max(navAgent.speed, 7);
 
             navAgent.acceleration = navAgent.speed * 5;
+
+            GameObject.FindObjectOfType<RandomMap>().numChasing++;
         }
 
         /// <summary>Method of Update of MoveToGameObject.</summary>
@@ -60,6 +62,12 @@ namespace BBUnity.Actions
         /// <remarks>When the task is aborted, it stops the navAgentMesh.</remarks>
         public override void OnAbort()
         {
+            GameObject.FindObjectOfType<RandomMap>().numChasing--;
+            if (GameObject.FindObjectOfType<RandomMap>().numChasing < 0)
+            {
+                GameObject.FindObjectOfType<RandomMap>().numChasing = 0;
+            }
+            navAgent.speed = Random.Range(3, 8);
 
 #if UNITY_5_6_OR_NEWER
             if (navAgent != null)

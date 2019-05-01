@@ -9,7 +9,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class RandomMap : MonoBehaviour {
 
     public GameObject star;
-    public GameObject npc;
+    public GameObject[] Cybots;
     private FirstPersonController fpc;
     private TextMeshProUGUI winGameTxt;
     private Button newGame;
@@ -18,8 +18,9 @@ public class RandomMap : MonoBehaviour {
     public AudioClip winSound;
     public AudioClip loseSound;
     private int numCaptured;
+    public int numChasing;
 
-    private List<GameObject> objects = new List<GameObject>();
+    public List<GameObject> objects = new List<GameObject>();
 
     // Use this for initialization
     void Start () {
@@ -113,15 +114,21 @@ public class RandomMap : MonoBehaviour {
             go.transform.position = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
         }
 
-        int numEnemies = (int)Random.Range(5, 15);
-        for(int i = 0; i < numEnemies; i++)
+        if(Cybots.Length > 0)
         {
-            Vector3 pos = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
-            GameObject go = Instantiate(npc, pos, Quaternion.identity);
-            objects.Add(go);
-            go.transform.SetParent(transform);
-
+            int numEnemies = (int)Random.Range(10, 20);
+            for (int i = 0; i < numEnemies; i++)
+            {
+                GameObject npc = Cybots[i];
+                if (i > 9)
+                    npc = Cybots[Random.Range(0, Cybots.Length)];
+                Vector3 pos = new Vector3(Random.Range(-57.4f, 57.4f), 1.5f, Random.Range(-57.4f, 57.4f));
+                GameObject go = Instantiate(npc, pos, Quaternion.identity);
+                objects.Add(go);
+                go.transform.SetParent(transform);
+            }
         }
+        
 
         Vector3 randStart = new Vector3(Random.Range(-57.4f, 57.4f), 2.63f, Random.Range(-57.4f, 57.4f));
         Vector3 randGoal = new Vector3(Random.Range(-57.4f, 57.4f), 2.63f, Random.Range(-57.4f, 57.4f));
