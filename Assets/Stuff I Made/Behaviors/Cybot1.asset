@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a7c8ca992f915438a96c2077353778, type: 3}
+  m_Name: Cybot1
+  m_EditorClassIdentifier: 
+  brickName: Assets/Stuff I Made/Behaviors/Cybot1.asset
+  xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
+    version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
+    id=\"0\" guid=\"548dc85911409a54e9e8ec6f18b3a35c\" nextId=\"45\">\r\n      <root>\r\n
+    \       <ParallelNode id=\"15\" />\r\n      </root>\r\n      <inputParams />\r\n
+    \     <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <ParallelNode
+    id=\"15\" policy=\"AndPolicy\">\r\n      <children>\r\n        <elem>\r\n          <ParallelNode
+    id=\"34\" />\r\n        </elem>\r\n        <elem>\r\n          <SubbehaviorNode
+    id=\"33\" />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n
+    \     <outputParams />\r\n      <localParams />\r\n    </ParallelNode>\r\n    <ParallelNode
+    id=\"34\" policy=\"AndPolicy\">\r\n      <children>\r\n        <elem>\r\n          <RepeatDecorator
+    id=\"42\" />\r\n        </elem>\r\n        <elem>\r\n          <RepeatDecorator
+    id=\"36\" />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n
+    \     <outputParams />\r\n      <localParams />\r\n    </ParallelNode>\r\n    <SubbehaviorNode
+    id=\"33\">\r\n      <_guid>ff6aab435fee22445b18b453c6e68045</_guid>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n
+    \   <RepeatDecorator id=\"42\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n
+    \     <child>\r\n        <PrioritySelectorNode id=\"1\" />\r\n      </child>\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n
+    \   <RepeatDecorator id=\"36\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n
+    \     <child>\r\n        <ActionNode id=\"35\" />\r\n      </child>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n
+    \   <PrioritySelectorNode id=\"1\">\r\n      <children>\r\n        <elem>\r\n
+    \         <GuardAndNode>\r\n            <guard>\r\n              <ConditionEvalNode
+    id=\"38\" />\r\n            </guard>\r\n            <child>\r\n              <SequenceNode
+    id=\"37\" />\r\n            </child>\r\n          </GuardAndNode>\r\n        </elem>\r\n
+    \       <elem>\r\n          <GuardAndNode>\r\n            <guard>\r\n              <ConditionEvalNode
+    id=\"11\" />\r\n            </guard>\r\n            <child>\r\n              <SubbehaviorNode
+    id=\"10\" />\r\n            </child>\r\n          </GuardAndNode>\r\n        </elem>\r\n
+    \     </children>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
+    />\r\n    </PrioritySelectorNode>\r\n    <ActionNode id=\"35\" action=\"Animation/PlayWalkRunAnimation\">\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n
+    \   <ConditionEvalNode id=\"38\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Perception/CustomIsPlayerClose\">\r\n
+    \     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"False\" />\r\n          <entry
+    name=\"closeDistance\" type=\"System.Single\" isBlackboard=\"False\" value=\"15\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n
+    \     <localParams />\r\n    </ConditionEvalNode>\r\n    <SequenceNode id=\"37\">\r\n
+    \     <children>\r\n        <elem>\r\n          <ActionNode id=\"39\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <ActionNode id=\"44\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <RepeatDecorator id=\"43\" />\r\n        </elem>\r\n      </children>\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n
+    \   <ConditionEvalNode id=\"11\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"AlwaysTrue\">\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n
+    \   <SubbehaviorNode id=\"10\">\r\n      <_guid>8fa0a8cb460b32340bcb1a10d02c67b8</_guid>\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n
+    \   <ActionNode id=\"39\" action=\"Navigation/Dobreakdance\">\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n
+    \   <ActionNode id=\"44\" action=\"Basic/WaitForSeconds\">\r\n      <inputParams>\r\n
+    \       <inputValues>\r\n          <entry name=\"seconds\" type=\"System.Single\"
+    isBlackboard=\"False\" value=\"3.3\" />\r\n        </inputValues>\r\n      </inputParams>\r\n
+    \     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <RepeatDecorator
+    id=\"43\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n
+    \       <ActionNode id=\"41\" />\r\n      </child>\r\n      <inputParams />\r\n
+    \     <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n
+    \   <ActionNode id=\"41\" action=\"Navigation/Cybot1PursuePlayerAction\">\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n
+    \ </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Cybot1\"
+    _description=\"\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n
+    \         <PrioritySelectorNode id=\"1\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <SubbehaviorNode id=\"10\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <ConditionEvalNode id=\"11\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <ParallelNode id=\"15\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <SubbehaviorNode id=\"33\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <ParallelNode id=\"34\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <ActionNode id=\"35\" />\r\n        </elem>\r\n        <elem>\r\n          <RepeatDecorator
+    id=\"36\" />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode id=\"37\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ConditionEvalNode id=\"38\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"39\" />\r\n
+    \       </elem>\r\n        <elem>\r\n          <ActionNode id=\"41\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <RepeatDecorator id=\"42\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <RepeatDecorator id=\"43\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <ActionNode id=\"44\" />\r\n        </elem>\r\n      </_rootList>\r\n
+    \     <_nodes>\r\n        <nodes>\r\n          <PrioritySelectorNode id=\"1\"
+    />\r\n          <SubbehaviorNode id=\"10\" />\r\n          <ConditionEvalNode
+    id=\"11\" />\r\n          <RepeatDecorator id=\"42\" />\r\n          <ActionNode
+    id=\"41\" />\r\n          <ParallelNode id=\"15\" />\r\n          <SubbehaviorNode
+    id=\"33\" />\r\n          <ParallelNode id=\"34\" />\r\n          <ActionNode
+    id=\"35\" />\r\n          <RepeatDecorator id=\"36\" />\r\n          <SequenceNode
+    id=\"37\" />\r\n          <ConditionEvalNode id=\"38\" />\r\n          <ActionNode
+    id=\"39\" />\r\n          <RepeatDecorator id=\"43\" />\r\n          <ActionNode
+    id=\"44\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n
+    \   <ParallelNode id=\"15\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"1718.118 -497.3928\" name=\"Parallel\" description=\"Executes
+    all its children in parallel until all of them are successful\" cardinality=\"-1\"
+    hasParent=\"False\">\r\n          <BehaviorTree id=\"15\" />\r\n        </data>\r\n
+    \     </_data>\r\n    </ParallelNode>\r\n    <ParallelNode id=\"34\">\r\n      <_data>\r\n
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"1310.131 -334.7859\"
+    name=\"Parallel\" description=\"Executes all its children in parallel until all
+    of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"15\" />\r\n          <ParallelNode id=\"34\" />\r\n          <ParallelNode
+    id=\"15\" />\r\n        </data>\r\n      </_data>\r\n    </ParallelNode>\r\n    <SubbehaviorNode
+    id=\"33\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"1828.986 -274.8932\" name=\"CaptureBehavior\" description=\"\" cardinality=\"-1\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"15\" />\r\n          <SubbehaviorNode
+    id=\"33\" />\r\n          <ParallelNode id=\"15\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </SubbehaviorNode>\r\n    <RepeatDecorator id=\"42\">\r\n      <_data>\r\n
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"1116.351 -206.1428\"
+    name=\"Repeat\" description=\"Repeats the execution of its child node\" cardinality=\"1\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"15\" />\r\n          <RepeatDecorator
+    id=\"42\" />\r\n          <ParallelNode id=\"34\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </RepeatDecorator>\r\n    <RepeatDecorator id=\"36\">\r\n      <_data>\r\n
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"1452.466 -31.05954\"
+    name=\"Repeat\" description=\"Repeats the execution of its child node\" cardinality=\"1\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"15\" />\r\n          <RepeatDecorator
+    id=\"36\" />\r\n          <ParallelNode id=\"34\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </RepeatDecorator>\r\n    <PrioritySelectorNode id=\"1\">\r\n      <_data>\r\n
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"1006.023 -61.55953\"
+    name=\"Priority Selector\" description=\"\" cardinality=\"1\" hasParent=\"True\">\r\n
+    \         <BehaviorTree id=\"15\" />\r\n          <PrioritySelectorNode id=\"1\"
+    />\r\n          <RepeatDecorator id=\"42\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </PrioritySelectorNode>\r\n    <ActionNode id=\"35\">\r\n      <_data>\r\n
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"1390.466 182.9405\"
+    name=\"Animation/PlayWalkRunAnimation\" description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n
+    \         <BehaviorTree id=\"15\" />\r\n          <ActionNode id=\"35\" />\r\n
+    \         <RepeatDecorator id=\"36\" />\r\n        </data>\r\n      </_data>\r\n
+    \   </ActionNode>\r\n    <ConditionEvalNode id=\"38\">\r\n      <_data>\r\n        <data
+    breakpoint=\"0\" selected=\"False\" position=\"1027.309 571.1912\" name=\"Perception/CustomIsPlayerClose\"
+    description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"15\" />\r\n          <ConditionEvalNode id=\"38\" />\r\n          <PrioritySelectorNode
+    id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n
+    \   <SequenceNode id=\"37\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"665.0891 144.5237\" name=\"Sequence\" description=\"Executes
+    all its children in sequence until all of them are successful\" cardinality=\"-1\"
+    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SequenceNode
+    id=\"37\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ConditionEvalNode
+    id=\"11\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"1236.295 233.8374\" name=\"AlwaysTrue\" description=\"Eval\" cardinality=\"1\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"15\" />\r\n          <ConditionEvalNode
+    id=\"11\" />\r\n          <PrioritySelectorNode id=\"1\" />\r\n        </data>\r\n
+    \     </_data>\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"10\">\r\n
+    \     <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"1092.856
+    137.274\" name=\"Wander\" description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n
+    \         <BehaviorTree id=\"0\" />\r\n          <SubbehaviorNode id=\"10\" />\r\n
+    \       </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n    <ActionNode
+    id=\"39\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"408.4231 391.1906\" name=\"Navigation/Dobreakdance\" description=\"\"
+    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n
+    \         <ActionNode id=\"39\" />\r\n          <SequenceNode id=\"37\" />\r\n
+    \       </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"44\">\r\n
+    \     <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"629.304
+    395.2856\" name=\"Basic/WaitForSeconds\" description=\"Action that success after
+    a period of time.\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ActionNode id=\"44\" />\r\n          <SequenceNode id=\"37\"
+    />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <RepeatDecorator
+    id=\"43\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"919.6843 362.7461\" name=\"Repeat\" description=\"Repeats the execution
+    of its child node\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <RepeatDecorator id=\"43\" />\r\n          <SequenceNode
+    id=\"37\" />\r\n        </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n
+    \   <ActionNode id=\"41\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"877.4225 496.5242\" name=\"Navigation/Cybot1PursuePlayerAction\"
+    description=\"Moves the game object towards a given target by using a NavMeshAgent\"
+    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n
+    \         <ActionNode id=\"41\" />\r\n          <RepeatDecorator id=\"43\" />\r\n
+    \       </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n
+    \ <runtimeInfo>\r\n    <BehaviorTree id=\"15\" nextId=\"1\">\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n
+    \ </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"15\" _removeIfClosed=\"False\">\r\n
+    \     <_rootList />\r\n      <_nodes>\r\n        <nodes />\r\n      </_nodes>\r\n
+    \   </BehaviorTree>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+  zoom: 0.7
+  subslist:
+  - {fileID: 11400000, guid: 8fa0a8cb460b32340bcb1a10d02c67b8, type: 2}
+  - {fileID: 11400000, guid: ff6aab435fee22445b18b453c6e68045, type: 2}
+  _guid: 548dc85911409a54e9e8ec6f18b3a35c
