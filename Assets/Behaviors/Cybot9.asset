@@ -41,7 +41,7 @@ MonoBehaviour:
     />\r\n    </PrioritySelectorNode>\r\n    <RepeatDecorator id=\"36\" loops=\"-1\"
     policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n        <ActionNode id=\"35\"
     />\r\n      </child>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </RepeatDecorator>\r\n    <ConditionEvalNode id=\"49\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\"
+    />\r\n    </RepeatDecorator>\r\n    <ConditionEvalNode id=\"49\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\"
     name=\"Perception/CustomIsPlayerClose\">\r\n      <inputParams>\r\n        <inputValues>\r\n
     \         <entry name=\"target\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
     />\r\n          <entry name=\"closeDistance\" type=\"System.Single\" isBlackboard=\"False\"

@@ -188,12 +188,12 @@ MonoBehaviour:
     \         <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"54\" />\r\n
     \         <RepeatDecorator id=\"53\" />\r\n        </data>\r\n      </_data>\r\n
     \   </SequenceNode>\r\n    <ActionNode id=\"55\">\r\n      <_data>\r\n        <data
-    breakpoint=\"0\" selected=\"False\" position=\"866.6665 711.6669\" name=\"Basic/WaitForSeconds\"
+    breakpoint=\"0\" selected=\"True\" position=\"866.6665 711.6669\" name=\"Basic/WaitForSeconds\"
     description=\"Action that success after a period of time.\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"55\" />\r\n          <SequenceNode id=\"54\" />\r\n        </data>\r\n      </_data>\r\n
     \   </ActionNode>\r\n    <ActionNode id=\"56\">\r\n      <_data>\r\n        <data
-    breakpoint=\"0\" selected=\"True\" position=\"1121.667 716.6668\" name=\"Navigation/SpawnNewCybotAction\"
+    breakpoint=\"0\" selected=\"False\" position=\"1121.667 716.6668\" name=\"Navigation/SpawnNewCybotAction\"
     description=\"Moves the game object towards a given target by using a NavMeshAgent\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n
     \         <ActionNode id=\"56\" />\r\n          <SequenceNode id=\"54\" />\r\n

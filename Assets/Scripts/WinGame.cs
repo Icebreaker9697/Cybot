@@ -10,6 +10,7 @@ public class WinGame : MonoBehaviour {
     private TextMeshProUGUI winGameTxt;
     private Button newGame;
     private FirstPersonController fpc;
+    public AudioClip winSound;
 
     // Use this for initialization
     void Start () {
@@ -27,6 +28,7 @@ public class WinGame : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            fpc.GetComponent<AudioSource>().PlayOneShot(winSound);
             GameObject.FindObjectOfType<RandomMap>().WinGame();
         }
     }

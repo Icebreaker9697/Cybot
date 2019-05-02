@@ -47,7 +47,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public bool canRun;
         public int sprintLeft;
         private TextMeshProUGUI powerupTxt;
+        private TextMeshProUGUI freezeGlareTxt;
         float timeSinceLastCall = 0;
+
+        private float originalWalkSpeed;
+        private float originalRunSpeed;
+        public bool isFrozen;
+        public int frozenLeft;
+        float timeSinceFreezeStarted = 0;
         //private bool isTimingOut;
 
         // Use this for initialization
@@ -64,6 +71,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
             powerupTxt = GameObject.FindGameObjectWithTag("PowerupText").GetComponent<TextMeshProUGUI>();
+            freezeGlareTxt = GameObject.FindGameObjectWithTag("FreezeGlareText").GetComponent<TextMeshProUGUI>();
+
+            originalRunSpeed = m_RunSpeed;
+            originalWalkSpeed = m_WalkSpeed;
         }
 
         // Update is called once per frame
@@ -113,7 +124,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else
             {
                 powerupTxt.SetText("");
-            }           
+            }
+            
+            if(frozenLeft != 0)
+            {
+                if (!isFrozen)
+                {
+                    isFrozen = true;
+                    m_WalkSpeed = m_WalkSpeed * .5f;
+                    m_RunSpeed = m_RunSpeed * .5f;
+                    timeSinceFreezeStarted = 0;
+                }
+                timeSinceFreezeStarted += Time.deltaTime;
+                if(timeSinceFreezeStarted > 1)
+                {
+                    frozenLeft--;
+                    if(frozenLeft == 0)
+                    {
+                        isFrozen = false;
+                        m_WalkSpeed = originalWalkSpeed;
+                        m_RunSpeed = originalRunSpeed;
+                    }
+                    timeSinceFreezeStarted = 0;
+                }
+                freezeGlareTxt.SetText("" + frozenLeft + " seconds left of 50% freeze glare speed penalty");
+            }
+            else
+            {
+                freezeGlareTxt.SetText("");
+            }
         }
 
         private void PlayLandingSound()

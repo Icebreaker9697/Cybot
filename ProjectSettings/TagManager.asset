@@ -10,6 +10,9 @@ TagManager:
   - Goal
   - NPC
   - NPC7
+  - Laser
+  - FreezeGlareText
+  - MainMenu
   layers:
   - Default
   - TransparentFX

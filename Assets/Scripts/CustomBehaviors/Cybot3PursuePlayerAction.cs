@@ -28,7 +28,6 @@ namespace BBUnity.Actions
             fpc = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
 
             randomTimeToGiveUp = Random.Range(5, 20);
-            Debug.Log("Will give up chasing after " + randomTimeToGiveUp + "seconds.");
 
             targetTransform = fpc.transform;
 
@@ -50,7 +49,6 @@ namespace BBUnity.Actions
 
             navAgent.acceleration = navAgent.speed * 5;
 
-            Debug.Log("Incrementing numChasing");
             GameObject.FindObjectOfType<RandomMap>().numChasing++;
         }
 

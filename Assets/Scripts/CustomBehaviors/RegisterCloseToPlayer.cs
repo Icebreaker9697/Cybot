@@ -32,7 +32,6 @@ namespace BBUnity.Actions
         {
             if ((gameObject.transform.position - GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().transform.position).sqrMagnitude < closeDistance * closeDistance)
             {
-                Debug.Log("Close to player");
                 GameObject.FindObjectOfType<RandomMap>().Capture();
                 return TaskStatus.COMPLETED;
             }

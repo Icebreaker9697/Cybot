@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toChase: {fileID: 0}
   numSpawned: 0
+  shootSound: {fileID: 8300000, guid: c361975adc27f324f8499ef266f10a5c, type: 3}
 --- !u!114 &114857242452957780
 MonoBehaviour:
   m_ObjectHideFlags: 1
